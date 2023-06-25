@@ -15,7 +15,6 @@ const InputField:React.FC= () => {
     if(todo){
       setTodos([...todos,todo])
     }
-     
   }
   return (
     <div style= {{width:"100%", display:"flex",alignItems:"center",flexDirection:"column",overflowX:"clip"}} >

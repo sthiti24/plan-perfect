@@ -7,12 +7,29 @@ interface Props{
 }
 
 const List:React.FC<Props> = ({tasks}) => {
-//delete function
 
+ const [taskList,setTaskList] = React.useState<string[]>([])
 
+ React.useEffect(() => {
+   setTaskList(tasks)
+ }, [taskList])
+ 
+ console.log("tasks",tasks)
+ console.log(taskList)
+ function handleDelete(text:string){
+  console.log("inside delete function ",taskList,text)
+    const i =  taskList.indexOf(text)
+    if (i !== -1){
+      console.log(i)
+      const newTaskList = taskList.filter((item) => {return item !== text}); 
+      setTaskList(newTaskList)
+    }
+   
+ 
+ }
   return (
       <ul style={{listStyle:"none"}}>
-      {tasks.map((todo)=>{return <li>{<SingleTodo task={todo}/>}</li>})}
+      {taskList.map((todo)=>{return <li>{<SingleTodo task={todo} deleteFunction={handleDelete}/>}</li>})}
       </ul>    
   )
 }
