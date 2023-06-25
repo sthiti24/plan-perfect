@@ -1,8 +1,19 @@
 import React from 'react'
+import SingleTodo from './SingleTodo'
+import './singleTodo.css'
 
-const List = () => {
+interface Props{
+  tasks:string[]
+}
+
+const List:React.FC<Props> = ({tasks}) => {
+//delete function
+
+
   return (
-    <div>List</div>
+      <ul style={{listStyle:"none"}}>
+      {tasks.map((todo)=>{return <li>{<SingleTodo task={todo}/>}</li>})}
+      </ul>    
   )
 }
 

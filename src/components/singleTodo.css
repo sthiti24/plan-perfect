@@ -1,0 +1,61 @@
+.todo{
+    /* border:2px solid black; */
+    display: flex;
+    align-items: center;
+    width:90%;
+    height:30px;
+    position: relative;
+    box-sizing: border-box;
+    margin: 10px 10px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    float:left;
+    background-image: linear-gradient(to right,goldenrod,gold);
+}
+.text{
+    position: relative;
+    /* border: 2px solid red; */
+    height:100%;
+    width:85%;
+    float:left;
+}
+.buttons{
+    position: relative;
+    width:15%;
+    /* border: 2px solid green; */
+    
+}
+.icon-button{
+    background-color: transparent;
+    border: none;
+    font-size: large;
+    float: right;
+}
+
+@media screen and (max-width:880px) {
+    .text{
+        width:70%;
+    }
+    .buttons{
+        width:30%;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .text{
+        width:60%;
+    }
+    .buttons{
+        width:40%;
+    }
+}
+
+@media screen and (max-width:380px) {
+    .text{
+        width:50%;
+    }
+    .buttons{
+        width:50%;
+    }
+}
+
