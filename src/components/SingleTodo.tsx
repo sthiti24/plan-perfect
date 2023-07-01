@@ -6,13 +6,16 @@ import {MdDone} from "react-icons/md"
 interface Props{
     task:string;
     deleteFunction:(text:string)=>void;
+    editFunction:(oldText:string,newText:string)=>void;
 }
-const SingleTodo:FC<Props> = ({task,deleteFunction}) => {
+const SingleTodo:FC<Props> = ({task,deleteFunction,editFunction}) => {
 
   const [text,setText] = useState<string>(task)
   const [done,setDone] = useState<boolean>(false)
   const [edit,setEdit] = useState<boolean>(false)
- console.log(task)
+  // const [editedText,setEditedText] = useState<string>(task)
+
+
   return (
     <div className='todo'>
        <div className="text">
@@ -21,9 +24,14 @@ const SingleTodo:FC<Props> = ({task,deleteFunction}) => {
          :(done?<s>{text}</s>:text)}
         </div>
       <div className='buttons'> 
-         <button className='icon-button' onClick={()=>{setDone(!done)}}>{<MdDone />}</button>
-         <button className='icon-button' onClick={()=>deleteFunction(text)}>{<AiTwotoneDelete />}</button>
-         <button className='icon-button' id="editBtn" onClick={()=>{setEdit(!edit)}
+         <button className='icon-button'
+          onClick={()=>{setDone(!done)}}>{<MdDone />}</button>
+
+         <button className='icon-button'
+          onClick={()=>deleteFunction(text)}>{<AiTwotoneDelete />}</button>
+
+         <button className='icon-button'id="editBtn"
+          onClick={()=>{setEdit(!edit);editFunction(task,text)}
          
         }>{<AiFillEdit />}</button>
       </div>

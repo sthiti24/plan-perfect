@@ -3,33 +3,29 @@ import SingleTodo from './SingleTodo'
 import './singleTodo.css'
 
 interface Props{
-  tasks:string[]
+  tasks:string[];
+  deleteFunction:(text:string)=>void;
+  editFunction:(oldText:string,newText:string)=>void;
 }
 
-const List:React.FC<Props> = ({tasks}) => {
+const List:React.FC<Props> = ({tasks,editFunction,deleteFunction}) => {
 
  const [taskList,setTaskList] = React.useState<string[]>([])
 
  React.useEffect(() => {
    setTaskList(tasks)
- }, [taskList])
+ }, [tasks])
  
- console.log("tasks",tasks)
- console.log(taskList)
- function handleDelete(text:string){
-  console.log("inside delete function ",taskList,text)
-    const i =  taskList.indexOf(text)
-    if (i !== -1){
-      console.log(i)
-      const newTaskList = taskList.filter((item) => {return item !== text}); 
-      setTaskList(newTaskList)
-    }
-   
- 
- }
+
+
+
   return (
       <ul style={{listStyle:"none"}}>
-      {taskList.map((todo)=>{return <li>{<SingleTodo task={todo} deleteFunction={handleDelete}/>}</li>})}
+
+      {taskList.map((todo)=>{return <li>{<SingleTodo task={todo}
+       editFunction = {editFunction} 
+      deleteFunction={deleteFunction}/>}</li>})}
+
       </ul>    
   )
 }
