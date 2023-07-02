@@ -20,29 +20,18 @@ const InputField:React.FC= () => {
       setTodos([...todos,todo])
     }
   }
-  function handleDelete(text:string){
+  function handleDelete(text: string) { 
+    setTodos((prevTodos) => prevTodos.filter((item) => item !== text)); 
+  } 
  
-    const i =  todos.indexOf(text)
-    console.log(i,text,"deleted text")
-    if (i !== -1){
-      const newTaskList = todos.filter((item) => {return item !== text}); 
-      console.log(newTaskList)
-      setTodos(()=>{return newTaskList.map((item)=>{return item})})
-      console.log("todos after delete",todos)
-    }
-    console.log("handle delete",todos)
- }
- function handleEdit(oldText:string,newText:string){
-      const i = todos.indexOf(oldText)
-      console.log(i,oldText,newText,"edit func")
-      if(i!==-1)
-      {
-        const newTaskList= todos;
-        newTaskList[i] = newText
-        setTodos(newTaskList)
-      }
-      console.log("handle edit",todos)
- }
+  function handleEdit(oldText: string, newText: string) { 
+    const i = todos.indexOf(oldText); 
+    if (i !== -1) { 
+      const newTaskList = [...todos]; 
+      newTaskList[i] = newText; 
+      setTodos(newTaskList); 
+    } 
+  } 
 
   return (
     <div style= {{width:"100%", display:"flex",
@@ -56,7 +45,7 @@ const InputField:React.FC= () => {
        </div>
        <br></br>
       <div style={{position:"relative",width:"85%"}}>
-         <List tasks = {todos} deleteFunction={handleDelete} editFunction={handleEdit}/>
+         <List key={todos.join(',')} tasks = {todos} deleteFunction={handleDelete} editFunction={handleEdit}/>
       </div>
     </div>
   )

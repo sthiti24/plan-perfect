@@ -19,7 +19,7 @@ const SingleTodo:FC<Props> = ({task,deleteFunction,editFunction}) => {
   return (
     <div className='todo'>
        <div className="text">
-         {edit && !done?<input onChange={(event)=>{setText(event.target.value)}}
+         {edit && !done?<input className='edit-text' onChange={(event)=>{setText(event.target.value)}}
          onKeyDown={(event)=>{ if(event.key==="Enter"){document.getElementById('editBtn')?.click() ; setEdit(!edit)}} }/>
          :(done?<s>{text}</s>:text)}
         </div>
