@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/plan-perfect/static/css/main.7c65f455.css",
+    "main.js": "/plan-perfect/static/js/main.10104fd0.js",
+    "index.html": "/plan-perfect/index.html",
+    "main.7c65f455.css.map": "/plan-perfect/static/css/main.7c65f455.css.map",
+    "main.10104fd0.js.map": "/plan-perfect/static/js/main.10104fd0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7c65f455.css",
+    "static/js/main.10104fd0.js"
+  ]
+}
