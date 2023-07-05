@@ -12,11 +12,8 @@ const InputField:React.FC= () => {
   }
 
   function addToList(todo:string){
-    // console.log("outside if")
     const i = todos.indexOf(todo)
-    // console.log(i)
     if(todo && (i<0)){
-      console.log("inside if",todo)
       setTodos([...todos,todo])
     }
   }
@@ -38,10 +35,10 @@ const InputField:React.FC= () => {
     alignItems:"center",flexDirection:"column",overflowX:"clip"}} >
        <div className='input'>
           <input type="text" placeholder='Enter a task'
-         className='input-box'
+         className='input-box' value={todo}
          onChange ={handleChange}/>
          
-          <button className='btn' onClick={()=>addToList(todo)}>Go</button>
+          <button className='btn' onClick={()=>{addToList(todo);setTodo("")}}>Go</button>
        </div>
        <br></br>
       <div style={{position:"relative",width:"85%"}}>

@@ -9,6 +9,7 @@
   background-color: #2f74c0;
   font-family: "Neucha", cursive;
   color: antiquewhite;
+  overflow-x: hidden;
 }
   .heading {
     text-transform: uppercase;

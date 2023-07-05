@@ -5,7 +5,7 @@ import InputField from './components/InputField';
 const App:React.FC = ()=> {
 
   return (
-    <div className="App">
+    <div className="App" >
       <h1>Plan Perfect</h1>
       <InputField />
     </div>

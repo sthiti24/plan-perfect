@@ -37,6 +37,8 @@
 .edit-text{
     background-color: transparent;
     border: none;
+    color: white;
+    font-size: 25px;
 }
 .edit-text:focus{
     outline: none;
